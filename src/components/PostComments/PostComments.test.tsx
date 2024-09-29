@@ -9,22 +9,18 @@ describe('Teste para o componente PostComment', () => {
 
     it('Deve adicionar dois comentários', () => {
         render(<PostComment />);
-
         fireEvent.change(screen.getByTestId('comment-textarea'), {
             target: {
                 value: 'Comentário nº 1 adicionado via testes com sucesso',
             }
         });
         fireEvent.click(screen.getByTestId('comment-button'));
-
-        // adiciona o segundo comentário
         fireEvent.change(screen.getByTestId('comment-textarea'), {
             target: {
                 value: 'Comentário nº 2 adicionado via testes com sucesso',
             }
         });
         fireEvent.click(screen.getByTestId('comment-button'));
-
         expect(screen.getAllByTestId('comment-element')).toHaveLength(2);
     });
 });
